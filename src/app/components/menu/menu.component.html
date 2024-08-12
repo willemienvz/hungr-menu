@@ -1,7 +1,28 @@
-<div *ngIf="item">
-    <h1>{{ item.name }}</h1>
-    <p>{{ item.description }}</p>
-</div>
-<div *ngIf="!item">
-    <p>No data found for this ID.</p>
+<div class="menuHold">
+    <h4 class="mainHeading" [ngStyle]="dynamicStyles">Browse Menu</h4>
+    <select (change)="onCategoryChange()" [(ngModel)]="selectedCategory" class="dropdown">
+        <option *ngFor="let category of categories" [ngValue]="category">{{ category.name }}</option>
+    </select>
+
+
+    <div class="subcategory-slider" *ngIf="subcategories.length > 0">
+        <div *ngFor="let subcategory of subcategories; let i = index"
+            [ngClass]="{'active': subcategory.id === activeSubcategoryId}" (click)="onSubcategoryChange(subcategory)">
+            <p>{{ subcategory.name }}</p>
+        </div>
+    </div>
+
+    <div class="items-list">
+        <div *ngFor="let item of getFilteredItems(); let i = index" class="item" (click)="navigateToItem(i)">
+            <img [src]="item.imageUrl" alt="" />
+            <div class="col">
+                <div class="row">
+                    <p>{{item.name}}</p>
+                    <p>{{item.price}}</p>
+                </div>
+                <p>{{item.description}}</p>
+            </div>
+        </div>
+    </div>
+
 </div>

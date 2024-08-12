@@ -1,0 +1,88 @@
+/* styles.css */
+.subcategory-slider {
+    display: flex;
+    overflow-x: auto;
+    white-space: nowrap;
+    max-width: 90%;
+  }
+  
+  .subcategory-slider div {
+    padding: 5px 10px;
+    margin-right: 10px;
+    cursor: pointer;
+    font-family: "Commissioner", sans-serif;
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: bold;
+    border-radius: 6px;
+  }
+
+  .subcategory-slider .active {
+    color: white;
+    background-color: #8F1517;
+  }
+  .menuHold{
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+
+  .dropdown{
+    border: 1px solid #DEDEDE;
+    background-color: white;
+    border-radius: 6px;
+    width: 90%;
+    font-family: "Commissioner", sans-serif;
+    font-size: 12px;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+
+.items-list{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 21px;
+
+  .item{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    border-radius: 6px;
+    background-color: white;
+    cursor: pointer;
+
+    img{
+      width: 40%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      border-radius: 6px 0 0 6px ;
+    }
+
+    .col{
+      width: 60%;
+      padding: 15px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .row{
+      width: 100%;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      display: flex;
+      
+      p{
+        font-weight: bold;
+      }
+    }
+  }
+}

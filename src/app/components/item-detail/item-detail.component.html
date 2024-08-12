@@ -1,0 +1,13 @@
+<div class="container">
+    <img [src]="item.imageUrl" alt="" class="mainImg" />
+    <i class="material-icons backIcon" (click)="back()">arrow_back</i>
+    <i class="material-icons facIcon">favorite</i>
+
+    <div class="content">
+        <div class="row">
+            <p class="title">{{item.name}}</p>
+            <p class="price">{{item.price}}</p>
+        </div>
+        <p class="desc">{{item.description}}</p>
+    </div>
+</div>

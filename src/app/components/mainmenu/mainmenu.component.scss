@@ -3,13 +3,14 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 1rem;
+    padding: 25px;
     background-color: #333;
     color: white;
   }
   
   .logo {
-    font-size: 1.5rem;
+    max-width: 150px;
+    max-height: 50px;
   }
   
   .hamburger {
@@ -18,19 +19,76 @@
   }
   
   .menu {
-    list-style: none;
+   
     display: none;
     flex-direction: column;
     position: absolute;
-    top: 3.5rem;
-    right: 1rem;
     background-color: #333;
-    padding: 0.5rem 1rem;
-    border-radius: 0.25rem;
+    padding: 25px;
+
+    .topbar{
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+
+      .logo{
+        max-width: 120px;
+        max-height: 50px;
+      }
+
+      i{
+        cursor: pointer;
+      }
+
+    }
+
+    .menuLinks{
+      list-style: none;
+      list-style-position: inside;
+      margin-top: 45px;
+
+      li{
+        font-size: 20px;
+        font-family: "Commissioner", sans-serif;
+        font-size: 20px;
+        font-weight: 700;
+        line-height: 22px;
+        letter-spacing: -0.001em;
+        text-align: left;
+       
+        border-bottom: 1px solid #444444;
+        margin: 0;
+
+a{
+  text-decoration: none !important;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 30px 15px;
+}
+        span{
+          font-size: 14px;
+          font-weight: 300;
+          line-height: 17.12px;
+          text-align: left;
+          margin-top: 15px;
+          
+        }
+      }
+    }
   }
-  
+  .menuLinks li:hover {
+    background-color: rgba(255, 255, 255, 0.1); /* Light opacity background */
+    transition: background-color 0.3s ease; /* Smooth transition */
+}
   .menu.open {
     display: flex;
+    width: 100%;
+    left: 0;
+    top: 0;
+    right: 0;
+    height: 100vh;
   }
   
   .menu li {
@@ -45,4 +103,12 @@
   .menu li a:hover {
     text-decoration: underline;
   }
-  
+  .loader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-size: 1.5rem;
+    color: #333;
+    background: rgba(255, 255, 255, 0.8);
+  }

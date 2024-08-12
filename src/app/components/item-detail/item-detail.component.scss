@@ -1,0 +1,77 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    position: relative;
+
+    .mainImg{
+        width: 100%;
+    }
+
+    .backIcon{
+        position: absolute;
+        top: 15px;
+        left: 30px;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #D1D9E2;
+        cursor: pointer;
+        border-radius: 10px;
+    }
+
+    .facIcon{
+        position: absolute;
+        top: 15px;
+        right: 30px;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        border-radius: 10px;
+        background-color: #D1D9E2;
+    }
+
+    .content{
+        padding: 30px;
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+        width: 100%;
+
+        .row{
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .title{
+            font-family: "Commissioner", sans-serif;
+            font-size: 18px;
+            text-transform: uppercase;
+            font-weight: bold;
+            color: black;
+        }
+
+        .price{
+            font-family: "Commissioner", sans-serif;
+            font-size: 18px;
+            text-transform: uppercase;
+            font-weight: bold;
+            color: black;
+        }
+
+        .desc{
+            color: black;
+            font-family: "Commissioner", sans-serif;
+            font-size: 14px;
+            color: 444444;
+        }
+    }
+}

@@ -1,12 +1,24 @@
-<!-- src/app/menu/menu.component.html -->
-<nav class="navbar">
-    <div class="logo">My Logo</div>
+<nav class="navbar" [ngStyle]="{'background-color': brand.backgroundColor}" *ngIf="!isLoading">
+    <img class="logo" [src]="brand.imageUrl" alt="" />
     <div class="hamburger" (click)="toggleMenu()">
-        &#9776; <!-- Hamburger icon -->
+        &#9776;
     </div>
-    <ul class="menu" [class.open]="isMenuOpen">
-        <li><a routerLink="/about">About</a></li>
-        <li><a routerLink="/help">Help</a></li>
-        <li><a routerLink="/call-for-service">Call for Service</a></li>
-    </ul>
+    <div class="menu" [class.open]="isMenuOpen" [ngStyle]="{'background-color': brand.backgroundColor}">
+        <div class="topbar">
+            <img class="logo" [src]="brand.imageUrl" alt="" />
+            <i class="material-icons" (click)="toggleMenu()">close</i>
+        </div>
+        <ul class="menuLinks">
+            <li><a routerLink="/call-for-service">Call for Service<br /><span>Need assistance from your waiter?
+                        Select this option and someone will tend to you shortly.</span></a></li>
+            <li><a routerLink="/about">About</a></li>
+            <li><a routerLink="/help">Help</a></li>
+
+        </ul>
+    </div>
 </nav>
+
+<!-- Loader section -->
+<div *ngIf="isLoading" class="loader">
+    Loading...
+</div>
