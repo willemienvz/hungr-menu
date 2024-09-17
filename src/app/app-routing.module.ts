@@ -8,11 +8,12 @@ import { ItemDetailComponent } from './components/item-detail/item-detail.compon
 
 const routes: Routes = [
   { path: ':id', component: MenuComponent },
-  { path: ':id/items/:itemId', component: ItemDetailComponent },
-  { path: 'about', component: AboutComponent },
-  { path: 'help', component: HelpComponent },
-  { path: 'call-for-service', component: CallforserviceComponent }
+  { path: ':id/about', component: AboutComponent },
+  { path: ':id/help', component: HelpComponent },
+  { path: ':id/call-for-service', component: CallforserviceComponent },
+  { path: ':id/items/:itemId', component: ItemDetailComponent }
 ];
+
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

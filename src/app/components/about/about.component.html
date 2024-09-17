@@ -1,1 +1,81 @@
-<p>about works!</p>
+<div class="banner">
+    <img class="mainImg" [src]="mainImageUrl" alt="" />
+    <a class="favorite">
+        <span class="material-symbols-outlined ">
+            favorite
+        </span>
+    </a>
+    <a class="back" (click)="goBack()">
+        <span class="material-symbols-outlined ">
+            arrow_back
+        </span>
+    </a>
+</div>
+
+<div class="content">
+    <h2 [ngStyle]="{
+        'color': brand.mainHeadingColor,
+        'font-family': brand.mainHeadingTypeface,
+        'font-size': brand.mainHeadingSize,
+        'text-transform': brand.mainHeadingLettercase
+    }">About Us</h2>
+    <p [ngStyle]="{
+        'color': brand.bodyColor,
+        'font-family': brand.bodyTypeface,
+        'font-size': brand.bodySize,
+        'text-transform': brand.bodyLettercase
+    }">
+        {{ aboutText }}
+    </p>
+</div>
+
+<div class="banner">
+    <img class="mainImg" [src]="additionalImageUrl" alt="" />
+</div>
+
+
+<div class="content hoursBox" *ngIf="isContactDetailsVisible && isBusinessHoursVisible">
+    <h2 [ngStyle]="{
+        'color': brand.mainHeadingColor,
+        'font-family': brand.mainHeadingTypeface,
+        'font-size': brand.mainHeadingSize,
+        'text-transform': brand.mainHeadingLettercase
+    }">Details</h2>
+    <div class="contentHold" *ngIf="isBusinessHoursVisible">
+        <p [ngStyle]="{
+            'color': brand.subHeadingColor,
+            'font-family': brand.subHeadingTypeface,
+            'font-size': brand.subHeadingSize,
+            'text-transform': brand.subHeadingLettercase}">
+            Opening Hours
+        </p>
+        <p *ngIf="isBusinessHoursVisible" [ngStyle]="{
+            'color': brand.bodyColor,
+            'font-family': brand.bodyTypeface,
+            'font-size': brand.bodySize,
+            'text-transform': brand.bodyLettercase
+        }" [innerHTML]="businessHours"></p>
+    </div>
+    <div class="contentHold" *ngIf="isContactDetailsVisible">
+        <p [ngStyle]="{
+            'color': brand.subHeadingColor,
+            'font-family': brand.subHeadingTypeface,
+            'font-size': brand.subHeadingSize,
+            'text-transform': brand.subHeadingLettercase}">
+            Contact Details
+        </p>
+        <a *ngIf="cellphone" href="tel:{{cellphone}}" [ngStyle]="{
+            'color': brand.bodyColor,
+            'font-family': brand.bodyTypeface,
+            'font-size': brand.bodySize,
+            'text-transform': brand.bodyLettercase
+        }">{{cellphone}}</a>
+        <a *ngIf="email" href="mailto:{{email}}" [ngStyle]="{
+            'color': brand.bodyColor,
+            'font-family': brand.bodyTypeface,
+            'font-size': brand.bodySize,
+            'text-transform': brand.bodyLettercase
+        }">{{email}}</a>
+    </div>
+
+</div>

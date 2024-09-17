@@ -23,8 +23,7 @@ export class ItemDetailComponent {
   ngOnInit() {
     const itemId = this.route.snapshot.paramMap.get('itemId');
     const id = this.route.snapshot.paramMap.get('id') ;
-    this.stateService.menu$.subscribe(menu => this.activeMenu = menu);
-    if (Object.keys(this.activeMenu).length === 0 && id && itemId)  { 
+    if (id && itemId) {
       this.fetchMenu(id, itemId);
     }
   }

@@ -1,0 +1,71 @@
+.banner{
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .mainImg{
+        width: 100%;
+    }
+
+    .favorite{
+        position: absolute;
+        background-color: #818183;
+        cursor: pointer;
+        border-radius: 10px;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        top: 15px;
+        right: 30px;
+        color: white;
+    }
+
+    .back{
+        color: white;
+        position: absolute;
+        background-color: #818183;
+        cursor: pointer;
+        border-radius: 10px;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        top: 15px;
+        left: 30px;
+    }
+}
+
+.content{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    background: rgba(216, 210, 202, 0.25);
+    flex-direction: column;
+    gap: 15px;
+   
+
+}
+
+.hoursBox{
+     background: rgba(216, 210, 202, 1);
+}
+
+.contentHold{
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+    p{
+        text-align: center;
+    }
+    a{
+
+    }
+}

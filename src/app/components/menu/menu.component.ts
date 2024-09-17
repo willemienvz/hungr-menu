@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Menu } from '../../models/menu';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
@@ -7,13 +7,14 @@ import { Branding } from '../../models/branding';
 import { StateService } from '../../state.service';
 import { Category } from '../../models/category';
 import { MenuItem } from '../../models/menu-item';
+import { ViewTimeService } from '../../services/view-time.service';
 
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.component.html',
   styleUrl: './menu.component.scss'
 })
-export class MenuComponent implements OnInit{
+export class MenuComponent implements OnInit, OnDestroy{
   activeMenu:Menu = {} as Menu;
   activeIndex = 0; 
   activeRestaurant:Restaurant = {} as Restaurant;
@@ -27,17 +28,23 @@ export class MenuComponent implements OnInit{
   dynamicStyles: { [key: string]: string } = {};
   holdIDRestaurant:string = '';
 
+  private startTime: number = 0;
   constructor(
     private route: ActivatedRoute,
     private firestore: AngularFirestore,
     private stateService: StateService,
-    private router: Router
+    private router: Router,
+    private viewTimeService: ViewTimeService
   ) { }
 
   ngOnInit(): void {
+  
+
+    this.startTime = Date.now();
     this.route.paramMap.subscribe(params => {
       const id = params.get('id')!;
       this.holdIDRestaurant = id;
+     
       this.fetchMenu(id); 
     });
     this.stateService.menu$.subscribe(menu => this.activeMenu = menu);
@@ -45,6 +52,12 @@ export class MenuComponent implements OnInit{
     this.stateService.branding$.subscribe(branding => this.brand = branding);
     this.selectedCategory = this.categories[0];
    
+  }
+
+  ngOnDestroy(): void {
+    const endTime = Date.now();
+    const viewingTime = endTime - this.startTime;
+    this.viewTimeService.recordViewingTime(this.activeMenu.menuID, viewingTime); 
   }
 
   setActive(index: number, subcategoryId: number | null) {
@@ -71,6 +84,7 @@ export class MenuComponent implements OnInit{
         this.items = this.activeMenu.items;
         this.stateService.setMenu(this.activeMenu);
         console.log('activeMenu', this.activeMenu);
+       
       });
 
       this.firestore.collection<Branding>('branding', ref => ref.where('parentID', '==', this.activeRestaurant.ownerID))

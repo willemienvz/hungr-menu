@@ -9,11 +9,16 @@
             <i class="material-icons" (click)="toggleMenu()">close</i>
         </div>
         <ul class="menuLinks">
-            <li><a routerLink="/call-for-service">Call for Service<br /><span>Need assistance from your waiter?
-                        Select this option and someone will tend to you shortly.</span></a></li>
-            <li><a routerLink="/about">About</a></li>
-            <li><a routerLink="/help">Help</a></li>
+            <li><a (click)="callForService()">Call for Service<br /><span *ngIf="!showCalled">Need assistance from your
+                        waiter?
+                        Select this option and someone will tend to you shortly.</span>
+                    <p class="calledService" *ngIf="showCalled">A staff member has been notified and will be with you
+                        shortly.
+                    </p>
+                </a></li>
 
+            <li><a [routerLink]="['/', id, 'about']" (click)="toggleMenu()">About</a></li>
+            <li><a [routerLink]="['/', id, 'help']" (click)="toggleMenu()">Help</a></li>
         </ul>
     </div>
 </nav>

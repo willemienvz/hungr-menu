@@ -10,12 +10,12 @@ export interface Branding {
     mainHeadingLettercase:string;
     mainHeadingSize:string;
     mainHeadingTypeface:string;
-    subHeadingColour:string;
+    subHeadingColor:string;
     subHeadingLettercase:string;
     subHeadingSize:string;
     subHeadingTypeface:string;
     backgroundColor:string;
-    bodyColour:string;
+    bodyColor:string;
     bodyLettercase:string;
     bodySize:string;
     bodyTypeface:string;
