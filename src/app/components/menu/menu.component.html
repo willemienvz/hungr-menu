@@ -1,4 +1,5 @@
 <div class="menuHold">
+    <app-img-slider [images]="specialsList"></app-img-slider>
     <h4 class="mainHeading" [ngStyle]="dynamicStyles">Browse Menu</h4>
     <select (change)="onCategoryChange()" [(ngModel)]="selectedCategory" class="dropdown">
         <option *ngFor="let category of categories" [ngValue]="category">{{ category.name }}</option>

@@ -17,6 +17,7 @@ export class ItemDetailComponent {
   activeMenu:Menu = {} as Menu;
   activeRestaurant:Restaurant = {} as Restaurant;
   brand:Branding = {} as Branding;
+  isFavorited = false;
   constructor(private location: Location, private route: ActivatedRoute, private stateService: StateService,    private firestore: AngularFirestore,
     private router: Router) {}
 
@@ -58,4 +59,8 @@ export class ItemDetailComponent {
   back(): void {
     this.location.back()
   }
+
+  /* favorite(){
+
+  } */
 }

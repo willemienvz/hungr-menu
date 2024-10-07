@@ -1,0 +1,13 @@
+<div class="slider-container">
+    <!-- Image Slides -->
+    <div class="slides">
+        <img *ngFor="let image of images; let i = index" [src]="image" class="slide"
+            [ngClass]="{'active': i === currentIndex}" />
+    </div>
+
+    <!-- Navigation Dots -->
+    <div class="dots">
+        <span *ngFor="let image of images; let i = index" class="dot" [ngClass]="{'active-dot': i === currentIndex}"
+            (click)="changeSlide(i)"></span>
+    </div>
+</div>

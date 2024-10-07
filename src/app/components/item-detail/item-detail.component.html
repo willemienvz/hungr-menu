@@ -1,7 +1,7 @@
 <div *ngIf="item" class="container">
     <img [src]="item.imageUrl" alt="" class="mainImg" />
     <i class="material-icons backIcon" (click)="back()">arrow_back</i>
-    <i class="material-icons facIcon">favorite</i>
+    <!--  <i class="material-icons facIcon" [class.favorited]="isFavorited" (click)="favorite()">favorite</i> -->
 
     <div class="content">
         <div class="row">

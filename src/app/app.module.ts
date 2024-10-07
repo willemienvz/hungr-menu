@@ -19,6 +19,7 @@ import {MatIconModule} from '@angular/material/icon';
 import { environment } from '../../environments/environment';
 import { FooterComponent } from './components/footer/footer.component';
 import { ItemDetailComponent } from './components/item-detail/item-detail.component';
+import { ImgSliderComponent } from './components/img-slider/img-slider.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,7 +29,8 @@ import { ItemDetailComponent } from './components/item-detail/item-detail.compon
     HelpComponent,
     CallforserviceComponent,
     FooterComponent,
-    ItemDetailComponent
+    ItemDetailComponent,
+    ImgSliderComponent
   ],
   imports: [
     BrowserModule,

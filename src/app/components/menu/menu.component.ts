@@ -8,6 +8,7 @@ import { StateService } from '../../state.service';
 import { Category } from '../../models/category';
 import { MenuItem } from '../../models/menu-item';
 import { ViewTimeService } from '../../services/view-time.service';
+import { Special } from '../../models/special';
 
 @Component({
   selector: 'app-menu',
@@ -27,6 +28,7 @@ export class MenuComponent implements OnInit, OnDestroy{
   activeSubcategoryId: number | null = null;
   dynamicStyles: { [key: string]: string } = {};
   holdIDRestaurant:string = '';
+  specialsList: string[] = [];
 
   private startTime: number = 0;
   constructor(
@@ -46,6 +48,7 @@ export class MenuComponent implements OnInit, OnDestroy{
       this.holdIDRestaurant = id;
      
       this.fetchMenu(id); 
+      
     });
     this.stateService.menu$.subscribe(menu => this.activeMenu = menu);
     this.stateService.restaurant$.subscribe(restaurant => this.activeRestaurant = restaurant);
@@ -66,6 +69,14 @@ export class MenuComponent implements OnInit, OnDestroy{
     this.getFilteredItems();
   }
 
+  fetchSpecials(id:string){
+      this.firestore.collection<Special>('specials', ref => ref.where('menu', '==', id))
+      .valueChanges()
+      .subscribe(specials => {
+        this.specialsList = specials.map(special => special.imageUrl);
+      });
+    }
+
 
   fetchMenu(id:string){
     this.firestore.collection<Restaurant>('restuarants', ref => ref.where('restaurantID', '==', id))
@@ -84,6 +95,7 @@ export class MenuComponent implements OnInit, OnDestroy{
         this.items = this.activeMenu.items;
         this.stateService.setMenu(this.activeMenu);
         console.log('activeMenu', this.activeMenu);
+        this.fetchSpecials(this.activeMenu.menuID);
        
       });
 
@@ -96,18 +108,25 @@ export class MenuComponent implements OnInit, OnDestroy{
         console.log('brand', this.brand);
       });
     });
-  }
 
+    
+  }
 
   onCategoryChange(): void {
     if (this.selectedCategory) {
-        this.selectedCategoryId = this.selectedCategory.id;
-        this.subcategories = this.selectedCategory.subcategories || [];
-        this.activeSubcategoryId = null; 
+      this.selectedCategoryId = this.selectedCategory.id;
+      this.subcategories = this.selectedCategory.subcategories || [];
+  
+      if (this.subcategories.length > 0) {
+        this.activeSubcategoryId = this.subcategories[0].id;
+      } else {
+        this.activeSubcategoryId = null;
+      }
+      this.getFilteredItems();
     } else {
-        console.log('No category selected.');
+      console.log('No category selected.');
     }
-}
+  }
 
 onSubcategoryChange(subcategory: Category) {
   this.activeSubcategoryId = subcategory.id;

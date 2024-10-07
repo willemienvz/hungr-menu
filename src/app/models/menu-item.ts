@@ -18,4 +18,5 @@ export interface MenuItem {
       pairing: boolean;
       side: boolean;
   };
+  favoritedBy?: string[];
 }
