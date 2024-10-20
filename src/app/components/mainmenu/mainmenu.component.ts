@@ -6,6 +6,7 @@ import { Restaurant } from '../../models/restaurant';
 import { Menu } from '../../models/menu';
 import { Router } from '@angular/router';
 import { User } from '../../models/user';
+import { NotificationService } from '../../services/notification.service';
 
 @Component({
   selector: 'app-mainmenu',
@@ -33,7 +34,7 @@ export class MainmenuComponent implements OnInit {
     this.isMenuOpen = !this.isMenuOpen;
   }
 
-  constructor(private stateService: StateService, private firestore: AngularFirestore, private router: Router){
+  constructor(private stateService: StateService, private firestore: AngularFirestore, private router: Router,private notificationService: NotificationService){
     
   }
 
@@ -60,11 +61,18 @@ export class MainmenuComponent implements OnInit {
   
   callForService(){
     this.showCalled=true;
-    setTimeout(() => {
+    this.notificationService.sendNotification(this.getRandomInt(1, 10).toString()).then(() => {
+      console.log('Notification sent!');
       this.showCalled = false;
-    }, 5000);
-    //implementation needed
+    });
+
    }
+
+   private getRandomInt(min: number, max: number): number {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
 
   private isBrandFullyPopulated(brand: Branding): boolean {
     return brand.backgroundColor !== undefined &&
