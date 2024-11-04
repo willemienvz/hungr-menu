@@ -1,0 +1,315 @@
+.signup-container {
+    border-radius: 0;
+    display: flex;
+    max-width: 315px;
+    flex-direction: column;
+    font-family: 'Commissioner', sans-serif;
+  }
+  .password-feedback {
+    color: red;
+    font-size: 12px;
+}
+.password-feedback ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.password-feedback li {
+  color: red; /* Default color when requirement not met */
+}
+
+.password-feedback li.met {
+  color: green; /* Color for when the requirement is met */
+}
+
+.strength-indicator {
+    color: #888;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+  .company-logo {
+    object-fit: contain;
+    object-position: center;
+    width: 126px;
+    border-radius: 0;
+    align-self: center;
+    max-width: 100%;
+  }
+
+  .header-section {
+    display: flex;
+    margin-top: 30px;
+    width: 100%;
+    gap: 20px;
+    text-transform: uppercase;
+    justify-content: space-between;
+  }
+
+  .title {
+    color: #000;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: -0.03px;
+    text-align: center;
+    margin: 0;
+  }
+
+  .skip-button {
+    color: #9a9a9a;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: -0.01px;
+    text-align: right;
+    margin-top: 10px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+  }
+
+  .skip-button:focus {
+    outline: 2px solid #000;
+    outline-offset: 2px;
+  }
+
+  .signup-form {
+    width: 100%;
+    margin-top: 29px;
+    display: flex;
+    flex-direction: column;
+  }
+.birth-date-section{
+    margin-top: 20px;
+}
+  .email-label {
+    color: #9a9a9a;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: -0.01px;
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  .email-input {
+    border-radius: 6px;
+    width: 100%;
+    font-size: 14px;
+    color: #444;
+    font-weight: 500;
+    letter-spacing: -0.01px;
+    line-height: 1;
+    padding: 13px 11px;
+    border: 1px solid #9a9a9a;
+    box-sizing: border-box;
+  }
+
+  .email-input:focus {
+    outline: 2px solid #000;
+    outline-offset: 2px;
+    border-color: #000;
+  }
+
+  .container{
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+  }
+
+  .rowForm{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .password-container {
+    max-width: 315px;
+    font: 14px/1 'Commissioner', sans-serif;
+    letter-spacing: -0.01px;
+  }
+
+  .password-field {
+    margin: 15px 0 0 0;
+  }
+
+  .field-label {
+    color: #9a9a9a;
+    font-weight: 400;
+  }
+
+  .input-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+    padding: 14px;
+    border: 1px solid #9a9a9a;
+    border-radius: 6px;
+  }
+
+  .input-wrapper:focus-within {
+    border-color: #ff9900;
+  }
+
+  .password-input {
+    border: none;
+    background: white !important;
+    background-color: white !important;
+    color: #181818;
+    font: 500 13px/1 Barlow, sans-serif;
+    letter-spacing: 2.39px;
+    width: 100%;
+    outline: none !important;
+  }
+
+  .toggle-visibility {
+    width: 20px;
+    aspect-ratio: 1.67;
+    object-fit: contain;
+  }
+
+  .validation-container {
+    background-color: #e8eaed;
+    border-radius: 6px;
+    padding: 14px 15px;
+    margin-top: 15px;
+  }
+
+  .validation-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .validation-title {
+    color: #444;
+    font-size: 11px;
+    font-weight: 600;
+    margin: 0;
+  }
+
+  .strength-indicator {
+    color: #ff9900;
+    font-size: 11px;
+    font-weight: 500;
+  }
+
+  .requirements-container {
+    display: flex;
+    gap: 40px;
+    margin-top: 12px;
+  }
+
+  .requirements-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 11px;
+    line-height: 17px;
+    color: #444;
+  }
+
+  .requirement-item {
+    font-family: 'Commissioner', sans-serif;
+    font-weight: 500;
+  }
+
+  .requirement-met {
+    color: #ff9900;
+  }
+
+      .signup-container {
+      max-width: 315px;
+      color: #9a9a9a;
+      font: 400 14px 'Commissioner', -apple-system, Roboto, Helvetica, sans-serif;
+      letter-spacing: -0.01px;
+    }
+
+    .form-label {
+      display: flex;
+      gap: 4px;
+      align-items: center;
+    }
+
+    .icon-required {
+      width: 11px;
+      margin-top: 4px;
+    }
+
+    .date-inputs {
+      display: flex;
+      gap: 5px;
+      margin-top: 9px;
+      justify-content: space-between;
+    }
+
+    .date-input {
+      border: 1px solid #9a9a9a;
+      border-radius: 2px;
+      padding: 13px;
+      font-weight: 500;
+      color: #000;
+      width: 30%;
+      text-align: center;
+    }
+
+   
+
+    .gender-section {
+      margin-top: 15px;
+    }
+
+    .select-wrapper {
+      position: relative;
+      margin-top: 9px;
+    }
+
+    .gender-select {
+      width: 100%;
+      padding: 8px 12px;
+      border: 1px solid #9a9a9a;
+      border-radius: 6px;
+      font-weight: 500;
+      appearance: none;
+      background: transparent;
+    }
+
+    .icon-dropdown {
+      position: absolute;
+      right: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 24px;
+      pointer-events: none;
+    }
+
+    .submit-button {
+      display: block;
+      width: 150px;
+      margin: 30px auto 0;
+      padding: 10px 16px;
+      background-color: #000;
+      color: #f8f9fb;
+      border: none;
+      border-radius: 6px;
+      font-weight: 700;
+      text-transform: uppercase;
+      cursor: pointer;
+    }
+
+    .login-link {
+      text-align: center;
+      margin-top: 15px;
+    }
+
+    .underlined {
+      text-decoration: underline;
+      color: inherit;
+    }

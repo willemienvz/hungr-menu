@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA  } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 
@@ -20,6 +20,22 @@ import { environment } from '../../environments/environment';
 import { FooterComponent } from './components/footer/footer.component';
 import { ItemDetailComponent } from './components/item-detail/item-detail.component';
 import { ImgSliderComponent } from './components/img-slider/img-slider.component';
+import { SignInComponent } from './components/sign-in/sign-in.component';
+import { SignupComponent } from './components/sign-up/sign-up.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { ToastComponent } from './components/toast/toast.component';
+import { NoMenuComponent } from './components/no-menu/no-menu.component';
+import { SelectTableDialogComponent } from './components/select-table-dialog/select-table-dialog.component';
+import { SelectOptionsDialogComponent } from './components/select-options-dialog/select-options-dialog.component';
+import { OrderConfirmationDialogComponent } from './components/order-confirmation-dialog/order-confirmation-dialog.component';
+import { ProfileMenuComponent } from './components/profile-menu/profile-menu.component';
+import { ViewOrderComponent } from './components/view-order/view-order.component';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { OrderPlacedComponent } from './components/order-placed/order-placed.component';
+import { OrderSummaryComponent } from './components/order-summary/order-summary.component';
+import { PaymentMethodComponent } from './components/payment-method/payment-method.component';
+import { CardPaymentComponent } from './components/card-payment/card-payment.component';
+import { RateMealComponent } from './components/rate-meal/rate-meal.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,7 +46,21 @@ import { ImgSliderComponent } from './components/img-slider/img-slider.component
     CallforserviceComponent,
     FooterComponent,
     ItemDetailComponent,
-    ImgSliderComponent
+    ImgSliderComponent,
+    SignInComponent,
+    SignupComponent,
+    ToastComponent,
+    NoMenuComponent,
+    SelectTableDialogComponent,
+    SelectOptionsDialogComponent,
+    OrderConfirmationDialogComponent,
+    ProfileMenuComponent,
+    ViewOrderComponent,
+    OrderPlacedComponent,
+    OrderSummaryComponent,
+    PaymentMethodComponent,
+    CardPaymentComponent,
+    RateMealComponent
   ],
   imports: [
     BrowserModule,
@@ -40,8 +70,11 @@ import { ImgSliderComponent } from './components/img-slider/img-slider.component
     AngularFireAuthModule,
     AngularFireStorageModule,
     MatIconModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule,
+    MatSlideToggleModule
   ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA], 
   providers: [],
   bootstrap: [AppComponent]
 })

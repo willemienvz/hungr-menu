@@ -1,0 +1,55 @@
+<div class="container">
+    <main class="order-dialog">
+        <header class="header-container">
+            <h1 class="title">Order</h1>
+        </header>
+
+        <h3 class="option-title">Select a table number</h3>
+        <select [(ngModel)]="selectedTable" (ngModelChange)="onTableChange($event)" class="form-input">
+            <option *ngFor="let table of getNumberOfTables()" [value]="table">Table {{ table }}</option>
+        </select>
+
+        <p class="prompt-text" *ngIf="!isTableAvail">
+            The table number you have entered already has an active patron. Do you want to:
+        </p>
+
+        <section class="option join-order-option" [class.selected]="selectedOption === 'join'" *ngIf="!isTableAvail"
+            (click)="selectOption('join')">
+            <div class="option-header">
+                <div class="checkbox" [class.checked]="selectedOption === 'join'">
+                    <img *ngIf="selectedOption === 'join'" loading="lazy"
+                        src="https://cdn.builder.io/api/v1/image/assets/TEMP/62987da03d73afa06a64bc934336bac2f3e80813ad5aa691bba23df0a004050d?placeholderIfAbsent=true&apiKey=e267c502494249909854f49fe1d37e24"
+                        alt="Join Order Icon" class="option-icon" />
+                </div>
+                <h2 class="option-title">Join the current order <br /><span class="patron-name">Order created by:
+                        Kathy</span></h2>
+            </div>
+            <p class="option-description">The items you order will be added to the existing order number.</p>
+        </section>
+
+        <section class="option new-order-option" [class.selected]="selectedOption === 'new'"
+            (click)="selectOption('new')">
+            <div class="option-header">
+                <div class="checkbox" [class.checked]="selectedOption === 'new'">
+                    <img *ngIf="selectedOption === 'new'" loading="lazy"
+                        src="https://cdn.builder.io/api/v1/image/assets/TEMP/62987da03d73afa06a64bc934336bac2f3e80813ad5aa691bba23df0a004050d?placeholderIfAbsent=true&apiKey=e267c502494249909854f49fe1d37e24"
+                        alt="New Order Icon" class="option-icon" />
+                </div>
+                <h2 class="option-title">Create a new order</h2>
+            </div>
+            <p class="option-description">The items you order will be kept separate from the other patrons at the table.
+            </p>
+        </section>
+
+        <div class="info-container">
+            <img loading="lazy"
+                src="https://cdn.builder.io/api/v1/image/assets/TEMP/35c35a09da5ac375bd632b0a47fb8e77f842abe2f0f12add8ca4e53d99a8fc80?placeholderIfAbsent=true&apiKey=e267c502494249909854f49fe1d37e24"
+                alt="Info Icon" class="info-icon" />
+            <button class="info-button" tabindex="0">More information</button>
+        </div>
+
+        <!-- Confirm button is disabled if canConfirm is false -->
+        <button class="confirm-button" (click)="confirmSelection()" [disabled]="!canConfirm"
+            tabindex="0">Confirm</button>
+    </main>
+</div>

@@ -1,0 +1,45 @@
+<div class="container">
+    <main class="order-container">
+        <header class="order-header">
+            <img (click)="backToMenu()" loading="lazy"
+                src="https://cdn.builder.io/api/v1/image/assets/TEMP/b301227846da88b7c231a16c72d2fc5a27fbfe0780654d2647f30295038194e7?placeholderIfAbsent=true&apiKey=e267c502494249909854f49fe1d37e24"
+                alt="Order confirmation icon" class="order-icon" />
+            <h1 class="order-title">order</h1>
+            <div class="table-info">
+                <span class="table-label">Table</span>
+                <span class="table-number">{{order.tableIndex + 1}}</span>
+            </div>
+        </header>
+
+        <section class="order-details">
+            <div class="order-header-row">
+                <h2 class="item-column">Item Name</h2>
+                <div class="details-columns">
+                    <span class="quantity-label">QTY</span>
+                    <span class="price-label">Price</span>
+                </div>
+            </div>
+
+            <article class="order-item" *ngFor="let item of items">
+                <h3 class="item-name">{{ item.name }}</h3>
+                <div class="item-details">
+                    <span class="quantity">{{ item.quantity }}</span>
+                    <span class="price">{{ item.price }}</span>
+                </div>
+            </article>
+            <div class="order-total">
+                <h3 class="total-label">Total</h3>
+                <span class="total-amount">R {{ calculateTotal() }}</span>
+            </div>
+        </section>
+
+        <section class="order-status">
+            <p class="status-message">Your order has been placed</p>
+        </section>
+
+        <footer class="order-actions">
+            <button class="secondary-button" (click)="backToMenu()">Return to Menu</button>
+            <button class="primary-button" (click)="payNow()">pay now</button>
+        </footer>
+    </main>
+</div>

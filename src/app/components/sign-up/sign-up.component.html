@@ -1,0 +1,112 @@
+<div class="container">
+    <main class="signup-container">
+        <img loading="lazy"
+            src="https://cdn.builder.io/api/v1/image/assets/TEMP/f86713cadec83154500ffbbe47826f7d6c20b7d09847c836ca9072b6142df3c3?placeholderIfAbsent=true&apiKey=e267c502494249909854f49fe1d37e24"
+            alt="Company logo" class="company-logo" />
+
+        <section class="header-section">
+            <h1 class="title">Sign Up</h1>
+            <button class="skip-button" tabindex="0" (click)="onSkip()">SKIP this step</button>
+        </section>
+
+        <form [formGroup]="signUpForm" (ngSubmit)="onSubmit()" class="signup-form">
+            <div class="password-field">
+                <label for="email" class="form-label">Email</label>
+                <div class="input-wrapper">
+                    <input type="email" id="email" formControlName="email" class="password-input"
+                        placeholder="email@address.co.za" />
+                </div>
+            </div>
+
+            <div class="password-field">
+                <label for="name" class="form-label">Name</label>
+                <div class="input-wrapper">
+                    <input type="text" id="name" formControlName="name" class="password-input" placeholder="John" />
+                </div>
+            </div>
+
+            <div class="password-field">
+                <label for="surname" class="form-label">Surname</label>
+                <div class="input-wrapper">
+                    <input type="text" id="surname" formControlName="surname" class="password-input"
+                        placeholder="Smith" />
+                </div>
+            </div>
+
+            <div class="row-form">
+                <div class="password-field">
+                    <label for="password" class="form-label">Password</label>
+                    <div class="input-wrapper">
+                        <input type="password" id="password" formControlName="password" class="password-input"
+                            placeholder="Password" />
+                    </div>
+                    <div *ngIf="signUpForm.get('password')?.errors?.['requirements']" class="password-feedback">
+                        <p>Password must include:</p>
+                        <ul>
+                            <li [ngClass]="{ 'met': passwordCriteria.length }">At least 10 characters</li>
+                            <li [ngClass]="{ 'met': passwordCriteria.uppercase }">An uppercase letter</li>
+                            <li [ngClass]="{ 'met': passwordCriteria.lowercase }">A lowercase letter</li>
+                            <li [ngClass]="{ 'met': passwordCriteria.number }">A number</li>
+                            <li [ngClass]="{ 'met': passwordCriteria.specialChar }">A special character</li>
+                        </ul>
+                    </div>
+                    <div class="strength-indicator">Strength: {{ passwordStrength }}</div>
+                </div>
+
+                <div class="password-field">
+                    <label for="confirmPassword" class="form-label">Confirm Password</label>
+                    <div class="input-wrapper">
+                        <input type="password" id="confirmPassword" formControlName="confirmPassword"
+                            class="password-input" placeholder="Confirm Password" />
+                    </div>
+                    <div *ngIf="signUpForm.errors?.['notMatching']" class="password-feedback">
+                        <p>Passwords do not match</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row-form">
+                <section class="birth-date-section">
+                    <label for="dateOfBirth" class="form-label">
+                        Date of birth
+                        <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/96ee5b6013868f90f8f18d59342ece531adf44f138bdbd7e7d3be0d66a38d23f?placeholderIfAbsent=true&apiKey=e267c502494249909854f49fe1d37e24"
+                            alt="" class="icon-required" />
+                    </label>
+                    <div class="date-inputs">
+                        <input type="text" id="day" formControlName="day" class="date-input" placeholder="dd"
+                            maxlength="2" aria-label="Day" />
+                        <input type="text" id="month" formControlName="month" class="date-input" placeholder="mm"
+                            maxlength="2" aria-label="Month" />
+                        <input type="text" id="year" formControlName="year" class="date-input" placeholder="yyyy"
+                            maxlength="4" aria-label="Year" />
+                    </div>
+                </section>
+
+                <section class="gender-section">
+                    <label for="gender" class="form-label">
+                        Gender
+                        <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/96ee5b6013868f90f8f18d59342ece531adf44f138bdbd7e7d3be0d66a38d23f?placeholderIfAbsent=true&apiKey=e267c502494249909854f49fe1d37e24"
+                            alt="" class="icon-required" />
+                    </label>
+                    <div class="select-wrapper">
+                        <select id="gender" formControlName="gender" class="gender-select">
+                            <option value="" disabled selected>Please select</option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                            <option value="other">Other</option>
+                        </select>
+                        <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/f9336371425f457982c4857c943c87a4f410bc43c0a5579bb852c50dd32c50b8?placeholderIfAbsent=true&apiKey=e267c502494249909854f49fe1d37e24"
+                            alt="" class="icon-dropdown" />
+                    </div>
+                </section>
+
+                <button type="submit" class="submit-button">Sign Up</button>
+
+                <p class="login-link">
+                    Already have an account?
+                    <a href="/login" class="underlined">Log in</a>
+                </p>
+            </div>
+        </form>
+    </main>
+</div>

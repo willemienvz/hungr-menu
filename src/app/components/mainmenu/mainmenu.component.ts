@@ -4,7 +4,7 @@ import { StateService } from '../../state.service';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { Restaurant } from '../../models/restaurant';
 import { Menu } from '../../models/menu';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { User } from '../../models/user';
 import { NotificationService } from '../../services/notification.service';
 
@@ -34,29 +34,31 @@ export class MainmenuComponent implements OnInit {
     this.isMenuOpen = !this.isMenuOpen;
   }
 
-  constructor(private stateService: StateService, private firestore: AngularFirestore, private router: Router,private notificationService: NotificationService){
+  constructor(private route: ActivatedRoute,private stateService: StateService, private firestore: AngularFirestore, private router: Router,private notificationService: NotificationService){
     
   }
 
   ngOnInit(): void {
-    this.router.events.subscribe(() => {
-      const url = this.router.url;
-      const segments = url.split('/');
-      if (segments.length > 1) {
-        this.id = segments[1]; 
-        if (this.id){
-        }
-        
-      }
-    });
-   this.stateService.branding$.subscribe(branding => {
-    this.brand = branding;
-    
+    const pathname = window.location.pathname;
+    const parts = pathname.split('/').filter(Boolean); 
+    this.id = parts[0];
 
-    if (this.isBrandFullyPopulated(this.brand)) {
-      this.isLoading = false; 
-    }
-  });
+    this.firestore.collection<Restaurant>('restuarants', ref => ref.where('restaurantID', '==', this.id))
+    .valueChanges()
+    .subscribe(restaurant => {
+      this.activeRestaurant = restaurant[0];
+      this.stateService.setRestaurant(this.activeRestaurant);
+
+      this.firestore.collection<Branding>('branding', ref => ref.where('parentID', '==', this.activeRestaurant.ownerID))
+      .valueChanges()
+      .subscribe(brand => {
+        this.brand = brand[0];
+        this.stateService.setBranding(this.brand);
+        console.log('brand', this.brand);
+        this.isLoading=false;
+      });
+    });
+
   }
   
   callForService(){

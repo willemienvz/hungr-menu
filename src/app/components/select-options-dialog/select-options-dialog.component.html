@@ -1,0 +1,50 @@
+<div class="container">
+    <main class="customization-container">
+        <button class="close-button" aria-label="Close customization" (click)="dialogRef.close()">
+            <img loading="lazy"
+                src="https://cdn.builder.io/api/v1/image/assets/TEMP/981a57a57fee16318cd1b452ace7a88a1455fe1478d15e0f11a0b9fd6fa15ad3?placeholderIfAbsent=true&apiKey=e267c502494249909854f49fe1d37e24"
+                alt="" class="close-icon" />
+        </button>
+
+        <section class="options-container">
+            <!-- Variation options -->
+            <div class="selector-holder" *ngIf="data.variations.length > 0">
+                <h2 class="option-title">Variation</h2>
+                <div class="radio-group">
+                    <div class="option" *ngFor="let variation of data.variations">
+                        <input type="radio" [id]="variation" name="variation" [value]="variation"
+                            [(ngModel)]="selectedOptions.variation">
+                        <label [for]="variation">{{variation}}</label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Preparation options -->
+            <div class="selector-holder" *ngIf="data.preparations.length > 0">
+                <h2 class="option-title">Preparation</h2>
+                <div class="radio-group">
+                    <div class="option" *ngFor="let preparation of data.preparations">
+                        <input type="radio" [id]="preparation" name="preparation" [value]="preparation"
+                            [(ngModel)]="selectedOptions.preparation">
+                        <label [for]="preparation">{{preparation}}</label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sides options -->
+            <div class="selector-holder" *ngIf="data.sides.length > 0">
+                <h2 class="option-title">Sides</h2>
+                <div class="radio-group">
+                    <div class="option" *ngFor="let side of data.sides">
+                        <input type="radio" [id]="side" name="side" [value]="side" [(ngModel)]="selectedOptions.side">
+                        <label [for]="side">{{side}}</label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Confirm button -->
+            <button class="add-order-button" (click)="confirmSelection()">Add to Order</button>
+            <p class="order-instruction">Go to 'My order' to place your order</p>
+        </section>
+    </main>
+</div>

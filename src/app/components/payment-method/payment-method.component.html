@@ -1,0 +1,26 @@
+<div class="container">
+    <section class="payment-method">
+        <header class="payment-header">
+            <img loading="lazy" (click)="goBack()"
+                src="https://cdn.builder.io/api/v1/image/assets/TEMP/b301227846da88b7c231a16c72d2fc5a27fbfe0780654d2647f30295038194e7?placeholderIfAbsent=true&apiKey=e267c502494249909854f49fe1d37e24"
+                class="payment-icon" alt="Payment method icon" />
+            <h1 class="payment-title">Select Payment Method</h1>
+        </header>
+
+        <form class="payment-options" (ngSubmit)="next()">
+            <label class="payment-option" [class.selected]="selectedOption === 'creditDebit'"
+                (click)="selectOption('creditDebit')">
+                <span class="option-text">Credit / Debit Card</span>
+            </label>
+            <label class="payment-option" [class.selected]="selectedOption === 'snapScan'"
+                (click)="selectOption('snapScan')">
+                <span class="option-text">SnapScan</span>
+            </label>
+            <label class="payment-option" [class.selected]="selectedOption === 'zapper'"
+                (click)="selectOption('zapper')">
+                <span class="option-text">Zapper</span>
+            </label>
+            <button type="submit" class="submit-button">Next</button>
+        </form>
+    </section>
+</div>

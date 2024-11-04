@@ -1,0 +1,139 @@
+.container{
+    display: flex;
+    padding: 20px;
+}
+
+.rating-container {
+    border-radius: 0;
+    display: flex;
+   width: 100%;
+    flex-direction: column;
+    font-family: Commissioner, sans-serif;
+  }
+  .rating-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 17px;
+    color: #000;
+    text-align: center;
+  }
+  .rating-icon {
+    aspect-ratio: 1;
+    object-fit: contain;
+    width: 40px;
+  }
+  .rating-intro {
+    display: flex;
+    margin-top: 9px;
+    flex-direction: column;
+  }
+  .rating-title {
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: -0.02px;
+    text-transform: uppercase;
+    align-self: center;
+  }
+  .rating-description {
+    font-size: 14px;
+    font-weight: 300;
+    margin-top: 9px;
+  }
+  .meal-list-header {
+    display: flex;
+    margin-top: 25px;
+    gap: 40px 100px;
+    font-size: 14px;
+    justify-content: space-between;
+    color: #9a9a9a;
+    font-weight: 400;
+    letter-spacing: -0.01px;
+    line-height: 1;
+  }
+  .meal-list-label {
+    transform: rotate(-1.7441512670083802e-18rad);
+  }
+  .meal-list-label:last-child {
+    text-align: center;
+  }
+  .meal-items {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  .meal-item {
+    border-radius: 6px;
+    background-color: #fff;
+    display: flex;
+    margin-top: 5px;
+    width: 100%;
+    gap: 20px;
+    font-size: 14px;
+    color: #444;
+    font-weight: 500;
+    letter-spacing: -0.01px;
+    line-height: 1;
+    justify-content: space-between;
+    padding: 12px 13px;
+  }
+  .meal-name {
+    transform: rotate(-1.7441512670083802e-18rad);
+    margin: auto 0;
+  }
+  .rating-stars {
+    aspect-ratio: 6.54;
+    object-fit: contain;
+    width: 111px;
+    max-width: 100%;
+  }
+  .rating-actions {
+    display: flex;
+    margin-top: 50px;
+    width: 100%;
+    gap: 15px;
+    font-size: 14px;
+    font-weight: 700;
+    white-space: nowrap;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: -0.01px;
+    line-height: 1;
+  }
+  .action-button {
+    align-self: stretch;
+    border-radius: 6px;
+    min-height: 40px;
+    padding: 10px 16px;
+    border: none;
+    cursor: pointer;
+    flex: 1;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+  .skip-button {
+    background-color: #dedede;
+    color: #444;
+  }
+  .finish-button {
+    background-color: #000;
+    color: #f8f9fb;
+
+  }
+
+  .rating {
+    display: flex;
+    align-items: center;
+  }
+  
+  .star {
+    cursor: pointer;
+    font-size: 24px;
+    color: #ddd;
+    transition: color 0.2s;
+  }
+  
+  .star.filled {
+    color: #3CE1AF;
+  }
+  

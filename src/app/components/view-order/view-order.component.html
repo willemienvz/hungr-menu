@@ -1,0 +1,41 @@
+<div class="container" *ngIf="order && items">
+    <main class="order-container">
+        <header class="order-header">
+            <img loading="lazy"
+                src="https://cdn.builder.io/api/v1/image/assets/TEMP/b301227846da88b7c231a16c72d2fc5a27fbfe0780654d2647f30295038194e7?placeholderIfAbsent=true&apiKey=e267c502494249909854f49fe1d37e24"
+                alt="Order status icon" class="status-icon" (click)="goBack()" />
+            <h1 class="order-title">Order</h1>
+        </header>
+
+        <section class="table-info">
+            <span class="table-label">Table number</span>
+            <span class="table-number">{{ order.tableIndex + 1}}</span>
+        </section>
+
+        <section class="order-details">
+            <header class="details-header">
+                <h2 class="item-column">Item Name</h2>
+                <div class="quantity-price">
+                    <span class="quantity-header">QTY</span>
+                    <span class="price-header">Price</span>
+                </div>
+            </header>
+
+            <article class="order-item" *ngFor="let item of items">
+                <h3 class="item-name">{{ item.name }}</h3>
+                <div class="item-details">
+                    <span class="quantity">{{ item.quantity }}</span>
+                    <span class="price">{{ item.price }}</span>
+                </div>
+            </article>
+
+            <footer class="order-summary">
+                <div class="total-container">
+                    <h3 class="total-label">Total</h3>
+                    <span class="total-amount">R {{ calculateTotal() }}</span>
+                </div>
+                <button class="place-order-btn" type="button" (click)="placeOrder()">Place order</button>
+            </footer>
+        </section>
+    </main>
+</div>

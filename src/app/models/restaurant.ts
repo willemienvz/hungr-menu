@@ -10,4 +10,5 @@ export interface Restaurant {
     status:boolean;
     streetAdress:string;
     zip:string;
+    tables:string[];
  }

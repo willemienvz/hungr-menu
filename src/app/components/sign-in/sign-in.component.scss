@@ -1,0 +1,128 @@
+.login-container {
+    display: flex;
+    max-width: 480px;
+    width: 100%;
+    flex-direction: column;
+    font-family: 'Commissioner', sans-serif;
+    margin: 0 auto;
+    padding: 125px 30px 251px;
+  }
+
+  .mainHolder{
+    display: flex;
+    width: 100%;
+    background: #fff;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+
+  .company-logo {
+    aspect-ratio: 3;
+    object-fit: contain;
+    width: 126px;
+    align-self: center;
+  }
+
+  .login-header {
+    display: flex;
+    margin-top: 94px;
+    gap: 20px;
+    text-transform: uppercase;
+    justify-content: space-between;
+  }
+
+  .login-title {
+    color: #000;
+    font: 700 32px/1 'Commissioner', sans-serif;
+    letter-spacing: -0.03px;
+  }
+
+  .skip-button {
+    color: #9a9a9a;
+    font: 400 14px/1 'Commissioner', sans-serif;
+    letter-spacing: -0.01px;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+
+  .login-form {
+    margin-top: 32px;
+  }
+
+  .form-group {
+    margin-bottom: 15px;
+  }
+
+  .form-label {
+    color: #9a9a9a;
+    font: 400 14px/1 'Commissioner', sans-serif;
+    letter-spacing: -0.01px;
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  .form-input {
+    width: 100%;
+    border: 1px solid #9a9a9a;
+    border-radius: 6px;
+    padding: 13px 11px;
+    font: 500 14px/1 'Commissioner', sans-serif;
+    color: #444;
+  }
+
+  .password-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .forgot-password-link {
+    color: #9a9a9a;
+    font: 400 12px/1 'Commissioner', sans-serif;
+    text-decoration: none;
+  }
+
+  .password-input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+
+  .password-toggle {
+    position: absolute;
+    right: 13px;
+    width: 20px;
+    aspect-ratio: 1.67;
+    cursor: pointer;
+  }
+
+  .submit-button {
+    background: #000;
+    color: #f8f9fb;
+    border: none;
+    border-radius: 6px;
+    padding: 10px 16px;
+    width: 150px;
+    font: 700 14px/1 'Commissioner', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: -0.01px;
+    cursor: pointer;
+    display: block;
+    margin: 30px auto 0;
+  }
+
+  .signup-prompt {
+    color: #9a9a9a;
+    font: 400 14px/1 'Commissioner', sans-serif;
+    letter-spacing: -0.01px;
+    text-align: center;
+    margin-top: 15px;
+  }
+
+  .signup-link {
+    text-decoration: underline;
+    color: inherit;
+  }

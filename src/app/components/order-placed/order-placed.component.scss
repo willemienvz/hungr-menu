@@ -1,0 +1,149 @@
+.container{
+    width: 100%;
+    padding: 20px;
+}
+.order-container {
+width: 100%;
+    font-family: 'Commissioner', sans-serif;
+  }
+
+  .order-header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    justify-content: space-between;
+  }
+
+  .order-icon {
+    width: 40px;
+    aspect-ratio: 1;
+    object-fit: contain;
+  }
+
+  .order-title {
+    color: #000;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: -0.02px;
+    text-transform: uppercase;
+    margin: 0;
+  }
+
+  .table-info {
+    display: flex;
+    gap: 10px;
+    font-size: 14px;
+    color: #444;
+    letter-spacing: -0.01px;
+  }
+
+  .table-label {
+    font-weight: 500;
+    text-align: right;
+  }
+
+  .table-number {
+    font-weight: 700;
+    text-align: center;
+  }
+
+  .order-details {
+    margin-top: 25px;
+  }
+
+  .order-header-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    color: #9a9a9a;
+    letter-spacing: -0.01px;
+  }
+
+  .details-columns {
+    display: flex;
+    gap: 36px;
+  }
+
+  .order-item {
+    display: flex;
+    gap: 40px;
+    background: #fff;
+    border-radius: 6px;
+    padding: 13px;
+    margin-top: 5px;
+    font-size: 14px;
+    color: #444;
+    font-weight: 500;
+    letter-spacing: -0.01px;
+  }
+
+  .item-details {
+    display: flex;
+    gap: 46px;
+    margin-left: auto;
+  }
+
+  .order-total {
+    display: flex;
+    justify-content: space-between;
+    width: 196px;
+    margin: 10px 0 0 11px;
+    font-size: 14px;
+    color: #000;
+    font-weight: 700;
+    letter-spacing: -0.01px;
+  }
+
+  .total-amount {
+    background: #fff;
+    border-radius: 6px;
+    padding: 13px 20px;
+    text-align: right;
+  }
+
+  .order-status {
+    margin-top: 15px;
+  }
+
+  .status-message {
+    background: rgba(60,225,175,0.3);
+    border-radius: 6px;
+    padding: 9px 47px;
+    font-size: 14px;
+    color: #08865f;
+    font-weight: 700;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: -0.01px;
+    line-height: 2;
+    margin: 0;
+  }
+
+  .order-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+  }
+
+  .secondary-button,
+  .primary-button {
+    flex: 1;
+    min-height: 40px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: -0.01px;
+    border: none;
+    cursor: pointer;
+  }
+
+  .secondary-button {
+    background: #dedede;
+    color: #444;
+  }
+
+  .primary-button {
+    background: #000;
+    color: #f8f9fb;
+  }

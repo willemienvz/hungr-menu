@@ -1,0 +1,82 @@
+.profile-container {
+    width: 100%;
+    padding: 20px;
+    color: #000;
+    font: 300 14px Commissioner, -apple-system, Roboto, Helvetica, sans-serif;
+  }
+
+  .profile-header {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    max-width: 196px;
+  }
+
+  .profile-icon {
+    width: 40px;
+    aspect-ratio: 1;
+    object-fit: contain;
+  }
+
+  .profile-title, .section-title {
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: -0.02px;
+    text-transform: uppercase;
+    margin: 30px 0 15px;
+  }
+
+  .nav-item {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 8px 10px;
+    margin: 5px 0;
+    cursor: pointer;
+    font: inherit;
+    text-align: left;
+  }
+
+  .nav-icon {
+    width: 24px;
+    aspect-ratio: 1;
+    object-fit: contain;
+  }
+
+  .toggle-icon {
+    width: 20px;
+    aspect-ratio: 2;
+    object-fit: contain;
+    margin-top: 11px;
+  }
+
+  .logout-button {
+    display: block;
+    width: 140px;
+    min-height: 40px;
+    margin: 30px auto;
+    background: #000;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: -0.01px;
+    cursor: pointer;
+  }
+
+  .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+  }

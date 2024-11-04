@@ -1,0 +1,36 @@
+<div class="container">
+    <main class="rating-container">
+        <header class="rating-header">
+            <img loading="lazy"
+                src="https://cdn.builder.io/api/v1/image/assets/TEMP/b301227846da88b7c231a16c72d2fc5a27fbfe0780654d2647f30295038194e7?placeholderIfAbsent=true&apiKey=e267c502494249909854f49fe1d37e24"
+                alt="Rating icon" class="rating-icon" />
+            <div class="rating-intro">
+                <h1 class="rating-title">Rate your meal</h1>
+                <p class="rating-description">
+                    By rating your meal we can make personal recommendations for you in the future.
+                </p>
+            </div>
+        </header>
+        <section class="meal-list">
+            <div class="meal-list-header">
+                <span class="meal-list-label">Item Name</span>
+                <span class="meal-list-label">Rating</span>
+            </div>
+            <ul class="meal-items">
+                <li *ngFor="let item of items" class="meal-item">
+                    <span class="meal-name">{{ item.name }}</span>
+                    <div class="rating">
+                        <ng-container *ngFor="let star of [1, 2, 3, 4, 5]; let i = index">
+                            <span class="star" [class.filled]="i < item.rating"
+                                (click)="toggleRating(item, i + 1)">&#9733;</span>
+                        </ng-container>
+                    </div>
+                </li>
+            </ul>
+        </section>
+        <footer class="rating-actions">
+            <button class="action-button skip-button" (click)="onSkip()">skip</button>
+            <button class="action-button finish-button" (click)="onFinish()">finish</button>
+        </footer>
+    </main>
+</div>

@@ -1,0 +1,135 @@
+.container{
+    width: 100%;
+    padding: 20px;
+
+}
+
+.customization-container {
+    border-radius: 5px;
+    background: #fff;
+   width: 100%;
+    color: #000;
+    text-align: center;
+    padding: 20px 0 34px;
+    font: 14px 'Commissioner', sans-serif;
+  }
+
+  .close-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    margin: 0 22px 22px auto;
+    display: block;
+  }
+
+  .close-icon {
+    width: 15px;
+    aspect-ratio: 1;
+    object-fit: contain;
+  }
+
+  .options-container {
+    padding: 0 30px;
+  }
+
+  .option-title {
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #444;
+    margin: 25px 0 15px;
+    font-size: 14px;
+  }
+
+  .egg-options,
+  .cheese-options,
+  .side-options {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 25px;
+  }
+
+  .option-button {
+    border-radius: 6px;
+    background: #fff;
+    padding: 8px 28px;
+    border: 1px solid #dedede;
+    text-transform: uppercase;
+    letter-spacing: -0.01px;
+    line-height: 2;
+    cursor: pointer;
+    font: inherit;
+    flex: 1;
+  }
+
+  .option-button.selected {
+    border-color: #000;
+    font-weight: 700;
+  }
+
+  .add-order-button {
+    width: 177px;
+    border-radius: 6px;
+    background: #000;
+    color: #f8f9fb;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: -0.01px;
+    padding: 10px 16px;
+    border: none;
+    cursor: pointer;
+    margin: 30px auto 15px;
+    display: block;
+  }
+
+  .order-instruction {
+    color: #9a9a9a;
+    letter-spacing: -0.01px;
+    margin: 0;
+  }
+
+  .radio-group {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    overflow: hidden;
+    width: fit-content;
+  }
+  
+  .radio-group input[type="radio"] {
+    display: none; /* Hide the actual radio buttons */
+  }
+  
+  .radio-group label {
+    padding: 10px 20px;
+    cursor: pointer;
+    border-right: 1px solid #ccc;
+    font-weight: bold;
+    text-align: center;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .radio-group label:last-child {
+    border-right: none;
+  }
+  
+  .radio-group input[type="radio"]:checked + label {
+    background-color: #000;
+    color: #fff;
+  }
+  
+  .radio-group label:not(:checked) {
+    background-color: #fff;
+    color: #000;
+  }
+  
+  .radio-group label:hover {
+    background-color: #f0f0f0;
+  }
+  
+
+  .option{
+    display: flex;
+  }

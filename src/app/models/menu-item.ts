@@ -1,6 +1,7 @@
 import { Category } from "./category";
 
 export interface MenuItem {
+  itemId:string;
   categoryId: number;
   name: string;
   description: string;
@@ -19,4 +20,5 @@ export interface MenuItem {
       side: boolean;
   };
   favoritedBy?: string[];
+  rating: number;
 }

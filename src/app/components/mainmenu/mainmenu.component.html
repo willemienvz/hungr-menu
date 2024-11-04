@@ -1,11 +1,11 @@
 <nav class="navbar" [ngStyle]="{'background-color': brand.backgroundColor}" *ngIf="!isLoading">
-    <img class="logo" [src]="brand.imageUrl" alt="" />
+    <a [routerLink]="['/', id]"><img class="logo" [src]="brand.imageUrl" alt="" /></a>
     <div class="hamburger" (click)="toggleMenu()">
         &#9776;
     </div>
     <div class="menu" [class.open]="isMenuOpen" [ngStyle]="{'background-color': brand.backgroundColor}">
         <div class="topbar">
-            <img class="logo" [src]="brand.imageUrl" alt="" />
+            <a [routerLink]="['/', id]" (click)="toggleMenu()"><img class="logo" [src]="brand.imageUrl" alt="" /></a>
             <i class="material-icons" (click)="toggleMenu()">close</i>
         </div>
         <ul class="menuLinks">
@@ -17,6 +17,7 @@
                     </p>
                 </a></li>
 
+            <li><a [routerLink]="['/', id, 'profile']" (click)="toggleMenu()">Profile</a></li>
             <li><a [routerLink]="['/', id, 'about']" (click)="toggleMenu()">About</a></li>
             <li><a [routerLink]="['/', id, 'help']" (click)="toggleMenu()">Help</a></li>
         </ul>

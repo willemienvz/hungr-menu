@@ -1,7 +1,7 @@
 <div *ngIf="item" class="container">
     <img [src]="item.imageUrl" alt="" class="mainImg" />
     <i class="material-icons backIcon" (click)="back()">arrow_back</i>
-    <!--  <i class="material-icons facIcon" [class.favorited]="isFavorited" (click)="favorite()">favorite</i> -->
+    <i class="material-icons facIcon" [class.favorited]="isFavorited">favorite</i>
 
     <div class="content">
         <div class="row">
@@ -9,5 +9,7 @@
             <p class="price">{{item.price}}</p>
         </div>
         <p class="desc">{{item.description}}</p>
+
+        <button class="confirm-button" (click)="addToOrder(item)">+ add this item</button>
     </div>
 </div>

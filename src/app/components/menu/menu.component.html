@@ -14,7 +14,7 @@
     </div>
 
     <div class="items-list">
-        <div *ngFor="let item of getFilteredItems(); let i = index" class="item" (click)="navigateToItem(i)">
+        <div *ngFor="let item of getFilteredItems(); let i = index" class="item" (click)="navigateToItem(item.itemId)">
             <img [src]="item.imageUrl" alt="" />
             <div class="col">
                 <div class="row">
@@ -25,5 +25,4 @@
             </div>
         </div>
     </div>
-
 </div>

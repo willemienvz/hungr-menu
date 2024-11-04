@@ -1,0 +1,23 @@
+<section class="confirmation-modal">
+    <button class="close-button" aria-label="Close confirmation modal">
+        <img loading="lazy"
+            src="https://cdn.builder.io/api/v1/image/assets/TEMP/981a57a57fee16318cd1b452ace7a88a1455fe1478d15e0f11a0b9fd6fa15ad3?placeholderIfAbsent=true&apiKey=e267c502494249909854f49fe1d37e24"
+            alt="" class="close-icon" />
+    </button>
+    <main class="confirmation-content">
+        <h2 class="success-message">
+            This has been added to your order.
+        </h2>
+        <div class="action-buttons">
+            <button class="secondary-button" (click)="backToMenu()">
+                back to menu
+            </button>
+            <button class="primary-button" (click)="viewOrder()">
+                go to order
+            </button>
+        </div>
+        <p class="helper-text">
+            Go to 'My order' to place your order
+        </p>
+    </main>
+</section>

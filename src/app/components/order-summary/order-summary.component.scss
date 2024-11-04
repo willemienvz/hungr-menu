@@ -1,0 +1,257 @@
+.container{
+    width: 100%;
+    padding: 20px;
+}
+
+.hold{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+.order-summary {
+    border-radius: 0;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    font-family: 'Commissioner', sans-serif;
+    letter-spacing: -0.01px;
+    line-height: 1;
+  }
+  .summary-header {
+    display: flex;
+    gap: 37px;
+    font-size: 18px;
+    color: #000;
+    font-weight: 700;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: -0.02px;
+    line-height: 1;
+  }
+  .summary-icon {
+    aspect-ratio: 1;
+    object-fit: contain;
+    object-position: center;
+    width: 40px;
+  }
+  .summary-title {
+    margin: auto 0;
+  }
+  .item-header {
+    display: flex;
+    margin-top: 25px;
+    width: 100%;
+    gap: 20px;
+    font-size: 14px;
+    color: #9a9a9a;
+    font-weight: 400;
+    justify-content: space-between;
+  }
+  .item-name-header { transform: rotate(-1.744e-18rad); }
+  .item-qty-header, .item-price-header {
+    transform: rotate(-1.744e-18rad);
+    text-align: center;
+  }
+  .item-list {
+    list-style-type: none;
+    padding: 0;
+  }
+  .item {
+    border-radius: 6px;
+    background-color: #fff;
+    display: flex;
+    margin-top: 5px;
+    width: 100%;
+    gap: 40px 100px;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+    font-size: 14px;
+    color: #444;
+    font-weight: 500;
+    padding: 13px;
+  }
+  .item-name { transform: rotate(-1.744e-18rad); }
+  .item-qty, .item-price {
+    transform: rotate(-1.744e-18rad);
+    text-align: center;
+  }
+  .divider {
+    min-height: 1px;
+    margin-top: 4px;
+    width: 100%;
+    border: 1px solid #9a9a9a;
+  }
+
+  .item-price{
+    min-width: 50px;
+  }
+  .summary-footer {
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    margin-top: 5px;
+    width: 100%;
+  }
+  .total-section {
+    display: flex;
+    justify-content: space-between;
+  }
+  .total-labels, .total-values {
+    display: flex;
+    flex-direction: column;
+  }
+  .gratuity-label, .total-label {
+    font-size: 14px;
+    color: #000;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-top: 14px;
+    transform: rotate(-1.744e-18rad);
+  }
+  .total-label { margin-top: 31px; }
+  .gratuity-value {
+    border-radius: 6px;
+    background-color: #fff;
+    align-self: start;
+    font-size: 14px;
+    color: #444;
+    font-weight: 500;
+    text-align: center;
+    padding: 13px 35px;
+    border: 1px solid #9a9a9a;
+  }
+  .total-amount-section {
+    display: flex;
+    margin-top: 5px;
+    gap: 13px;
+  }
+  .total-amount {
+    border-radius: 6px;
+    background-color: #fff;
+    font-size: 14px;
+    color: #000;
+    font-weight: 700;
+    text-align: right;
+    padding: 13px 31px;
+  }
+  .split-payment-text {
+    color: #444;
+    font-size: 12px;
+    font-weight: 400;
+    text-align: center;
+    margin: auto 0;
+    text-align: center;
+    cursor: pointer;
+  }
+  .next-button {
+    align-self: center;
+    border-radius: 6px;
+    background-color: #000;
+    margin-top: 30px;
+    min-height: 40px;
+    width: 150px;
+    max-width: 100%;
+    font-size: 14px;
+    color: #f8f9fb;
+    font-weight: 700;
+    text-align: center;
+    text-transform: uppercase;
+    line-height: 1;
+    padding: 10px 16px;
+    border: none;
+    cursor: pointer;
+  }
+
+  .gratuity-input{
+    width: 100%;
+    border: 1px solid #9a9a9a;
+    border-radius: 6px;
+    padding: 13px 11px;
+    font: 500 14px/1 'Commissioner', sans-serif;
+    color: #444;
+    outline: none;
+  }
+
+  .gratuity-input-container {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .gratuity-input {
+    padding-right: 20px; /* Add space for the % symbol */
+  }
+  
+  .gratuity-input-container::after {
+    content: '%';
+    position: absolute;
+    top: 50%;
+    right: 5px;
+    transform: translateY(-50%);
+    color: #333;
+    pointer-events: none;
+  }
+
+  .split-payment-container {
+    display: flex;
+    gap: 12px;
+    font-family: 'Commissioner', sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.01px;
+    border-radius: 6px;
+    margin-top: 5px;
+    width: 100%;
+  }
+
+  .split-payment-title {
+    color: #000;
+    font-size: 14px;
+    line-height: 14px;
+    text-transform: uppercase;
+    margin: 12px 0 0 0;
+  }
+
+  .split-payment-controls {
+    display: flex;
+    gap: 9px;
+    text-align: center;
+  }
+
+  .quantity-control {
+    display: flex;
+    gap: 26px;
+    font-size: 14px;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    color: #000;
+    white-space: nowrap;
+    padding: 13px 10px;
+    border: 1px solid #9a9a9a;
+    border-radius: 6px;
+    background-color: #fff;
+  }
+
+  .quantity-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    color: #000;
+  }
+
+  .quantity-display {
+    min-width: 10px;
+  }
+
+  .split-payment-amount {
+    font-size: 12px;
+    color: #08865f;
+    padding: 14px 13px;
+    margin: 0;
+    background-color: #fff;
+    border-radius: 6px;
+
+  }

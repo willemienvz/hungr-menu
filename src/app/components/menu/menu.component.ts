@@ -9,7 +9,9 @@ import { Category } from '../../models/category';
 import { MenuItem } from '../../models/menu-item';
 import { ViewTimeService } from '../../services/view-time.service';
 import { Special } from '../../models/special';
-
+import { MatDialog } from '@angular/material/dialog';
+import { SelectTableDialogComponent } from '../select-table-dialog/select-table-dialog.component';
+import { v4 as uuidv4 } from 'uuid';
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.component.html',
@@ -36,11 +38,12 @@ export class MenuComponent implements OnInit, OnDestroy{
     private firestore: AngularFirestore,
     private stateService: StateService,
     private router: Router,
-    private viewTimeService: ViewTimeService
+    private viewTimeService: ViewTimeService,
+    private dialog: MatDialog,
   ) { }
 
   ngOnInit(): void {
-  
+   
 
     this.startTime = Date.now();
     this.route.paramMap.subscribe(params => {
@@ -85,6 +88,7 @@ export class MenuComponent implements OnInit, OnDestroy{
       this.activeRestaurant = restaurant[0];
       this.stateService.setRestaurant(this.activeRestaurant);
       console.log('activeRestaurant', this.activeRestaurant);
+      this.showTableDialogOnFirstVisit();
       this.firestore.collection<Menu>('menus', ref => ref.where('menuID', '==', this.activeRestaurant.menuID))
       .valueChanges()
       .subscribe(menus => {
@@ -145,8 +149,9 @@ getFilteredItems() {
   return filteredItems
 }
 
-navigateToItem(itemId: number) {
-  this.router.navigate([`/${this.holdIDRestaurant}/items/${itemId}`]);
+navigateToItem(itemId: string) {
+  console.log(itemId);
+  this.router.navigate([`/${this.holdIDRestaurant}/items`, itemId]);
 }
 
   setDynamicStyles() {
@@ -175,5 +180,90 @@ navigateToItem(itemId: number) {
       case 'capitalize': return 'capitalize';
       default: return 'none';
     }
+  }
+
+  showTableDialogOnFirstVisit() {
+    const orderSet = localStorage.getItem('orderID');
+
+    if (!orderSet) {
+      const dialogRef = this.dialog.open(SelectTableDialogComponent, {
+        data: {
+          tables: this.activeRestaurant.tables,
+          numberTables: this.activeRestaurant.numberTables
+        },
+        width: '95vw' 
+      });
+
+      dialogRef.afterClosed().subscribe((result) => {
+        console.log(result);
+        const userId = JSON.parse(localStorage.getItem('user')!)?.uid;
+        if (result.option === 'join') {
+          this.joinCurrentOrder(result.table, userId);
+        } else if (result.option === 'new') {
+          this.createNewOrder(result.table, userId);
+        }
+      });
+    }
+  }
+
+  joinCurrentOrder(tableNumber: number, userId: string) {
+    const tableIndex = tableNumber - 1;
+    const tableData = this.activeRestaurant.tables[tableIndex];
+    const [orderId, userArray] = this.parseOrderData(tableData);
+
+    if (!userArray.includes(userId)) {
+      userArray.push(userId);
+      const updatedTableData = `${orderId}, [${userArray.join(', ')}]`;
+
+      localStorage.setItem('orderID', orderId);
+      this.updateTableData(tableIndex, updatedTableData);
+      console.log(`User ${userId} joined order ${orderId} at table ${tableNumber}`);
+    } else {
+      localStorage.setItem('orderID', orderId);
+      console.log(`User ${userId} is already part of the order.`);
+    }
+  }
+  createNewOrder(tableNumber: number, userId: string) {
+    const tableIndex = tableNumber - 1;
+  
+    if (!this.activeRestaurant.tables) {
+      this.activeRestaurant.tables = new Array(this.activeRestaurant.numberTables).fill('');
+    }
+  
+    const newOrderId = `${uuidv4()}`;
+    const userArray = [userId];
+    const newOrderData = `${newOrderId}, [${userArray.join(', ')}]`;
+    
+    this.firestore.collection('orders').doc(newOrderId).set({
+      orderId: newOrderId,
+      tableIndex: tableIndex,
+      restaurantID: this.activeRestaurant.restaurantID,
+      status: 'pending',
+      items: []
+    });
+    localStorage.setItem('orderID', newOrderId);
+    this.updateTableData(tableIndex, newOrderData);
+    console.log(`Created new order ${newOrderId} with user ${userId} at table ${tableNumber}`);
+  }
+
+  updateTableData(tableIndex: number, updatedTableData: string) {
+    console.log(tableIndex, updatedTableData);
+    const updatedTables = [...this.activeRestaurant.tables];
+    console.log(updatedTables);
+    updatedTables[tableIndex] = updatedTableData;
+    console.log(updatedTables);
+
+    this.firestore.collection('restuarants').doc(this.activeRestaurant.restaurantID).update({
+      tables: updatedTables
+    });
+  }
+
+  parseOrderData(tableData: string): [string, string[]] {
+    const [orderId, users] = tableData.split(', ');
+    const userArray = users
+      .replace(/[\[\]']/g, '')
+      .split(', ')
+      .filter((user) => user.trim().length > 0);
+    return [orderId, userArray];
   }
 }
