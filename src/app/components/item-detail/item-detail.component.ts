@@ -85,6 +85,8 @@ export class ItemDetailComponent {
     });
   }
 
+
+
   back(): void {
     this.location.back()
   }
@@ -119,11 +121,12 @@ export class ItemDetailComponent {
   }
 
   confirmOrder(item: any, options: any) {
-   
+   console.log('item', item);
+   console.log('options', options);
     const userId = JSON.parse(localStorage.getItem('user')!)?.uid || 'no-user';
     const orderId = localStorage.getItem('orderID'); 
     const itemId = item.itemId; 
-    
+    console.log(orderId);
     if (orderId) {
       const orderRef = this.firestore.collection('orders').doc(orderId);
   
@@ -131,12 +134,15 @@ export class ItemDetailComponent {
       orderRef.get().subscribe(doc => {
         if (doc.exists) {
           this.allOrders = doc.data() as Order;
-          
+          console.log(this.activeMenu);
+          console.log(item.categoryId);
+          const catName = this.activeMenu.categories[item.categoryId-1].name;
           const orderItem: Item = {
             orderId: orderId,
             itemId: itemId,
             name: item.name,
             price: item.price,
+            category: catName,
             quantity: 1,
             addedBy: userId,
             variation: options?.variation || '',
@@ -147,7 +153,7 @@ export class ItemDetailComponent {
             uniqueID:uuidv4()
           };
   
-
+          
          
 
           this.allOrders.items = this.allOrders.items || [];

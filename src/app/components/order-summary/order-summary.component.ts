@@ -81,8 +81,23 @@ export class OrderSummaryComponent {
   increaseQuantity(): void {
     this.quantity++;
   }
+  calculateTipAmount(): number {
+    const total = this.calculateTotal();
+    return total * (this.tipPercentage / (100 + this.tipPercentage));
+  }
 
   next(){
-    this.router.navigate([`/${this.holdIDRestaurant}/payment-method`]);
+    const orderTotal = this.calculateTotal();
+    const tipAmount = this.calculateTipAmount();
+
+    this.firestore.collection('orders').doc(this.orderID).update({
+      orderTotal: orderTotal,
+      tipAmount: tipAmount.toFixed(2)
+    }).then(() => {
+      console.log("Order updated with total and tip amount.");
+      this.router.navigate([`/${this.holdIDRestaurant}/payment-method`]);
+    }).catch(error => {
+      console.error("Error updating order:", error);
+    });
   }
 }

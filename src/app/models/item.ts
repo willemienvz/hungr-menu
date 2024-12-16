@@ -1,5 +1,6 @@
 export interface Item {
     orderId: string,
+    category:string,
    itemId: string,
     name: string,
     price: number,
