@@ -17,14 +17,12 @@
                     </p>
                 </a></li>
 
-            <li><a [routerLink]="['/', id, 'profile']" (click)="toggleMenu()">Profile</a></li>
+            <!-- <li><a [routerLink]="['/', id, 'profile']" (click)="toggleMenu()">Profile</a></li> -->
             <li><a [routerLink]="['/', id, 'about']" (click)="toggleMenu()">About</a></li>
-            <li><a [routerLink]="['/', id, 'help']" (click)="toggleMenu()">Help</a></li>
+           <!--  <li><a [routerLink]="['/', id, 'help']" (click)="toggleMenu()">Help</a></li> -->
         </ul>
     </div>
 </nav>
 
 <!-- Loader section -->
-<div *ngIf="isLoading" class="loader">
-    Loading...
-</div>
+<app-loading [isLoading]="isLoading"></app-loading>

@@ -15,7 +15,7 @@ import { OrderPlacedComponent } from './components/order-placed/order-placed.com
 import { OrderSummaryComponent } from './components/order-summary/order-summary.component';
 import { PaymentMethodComponent } from './components/payment-method/payment-method.component';
 import { RateMealComponent } from './components/rate-meal/rate-meal.component';
-
+/* 
 const routes: Routes = [
   { path: 'no-menu', component: NoMenuComponent },
   { path: ':id/login', component: SignInComponent },
@@ -35,6 +35,31 @@ const routes: Routes = [
   { path: ':id/payment-method', component: PaymentMethodComponent, canActivate: [AuthGuard] },
   { path: ':id/rate-your-meal', component: RateMealComponent, canActivate: [AuthGuard] },
   { path: ':id/items/:itemId', component: ItemDetailComponent, canActivate: [AuthGuard] },
+
+
+  // Default and wildcard routes
+  { path: '', redirectTo: '/no-menu', pathMatch: 'full' },
+  { path: '**', redirectTo: '/no-menu' }
+]; */
+
+
+
+const routes: Routes = [
+  { path: 'no-menu', component: NoMenuComponent },
+  // Menu page - no child routes
+  { path: ':id', component: MenuComponent},
+
+  // Independent, guarded routes
+  { path: ':id/about', component: AboutComponent },
+  { path: ':id/profile', component: ProfileMenuComponent },
+  { path: ':id/help', component: HelpComponent },
+  { path: ':id/call-for-service', component: CallforserviceComponent },
+  { path: ':id/view-order', component: ViewOrderComponent },
+  { path: ':id/order-placed', component: OrderPlacedComponent },
+  { path: ':id/order-summary', component: OrderSummaryComponent },
+  { path: ':id/payment-method', component: PaymentMethodComponent },
+  { path: ':id/rate-your-meal', component: RateMealComponent },
+  { path: ':id/items/:itemId', component: ItemDetailComponent },
 
 
   // Default and wildcard routes

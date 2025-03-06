@@ -1,5 +1,26 @@
 <div class="menuHold">
     <app-img-slider [images]="specialsList"></app-img-slider>
+    <div class="recommended-section" *ngIf="recommendedItems.length > 0">
+        <h4 class="mainHeading" [ngStyle]="dynamicStyles">Recommended for you</h4>
+        <div class="slider-container">
+<!--             <button class="slider-btn left" (click)="scrollLeft()">&#10094;</button>
+ -->            <div class="items-wrapper" #scrollContainer>
+                <div *ngFor="let item of recommendedItems" class="item" (click)="navigateToItem(item.itemId)">
+                    <div class="img">
+                        <img [src]="item.imageUrl" alt="{{item.name}}" />
+                    </div>
+                    <div class="col">
+                        <div class="row">
+                            <p class="item-name" style="white-space: normal;">{{ item.name }}</p>
+                            <p class="item-price"><strong>{{item.price}}</strong></p>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+<!--             <button class="slider-btn right" (click)="scrollRight()">&#10095;</button>
+ -->        </div>
+    </div>
     <h4 class="mainHeading" [ngStyle]="dynamicStyles">Browse Menu</h4>
     <select (change)="onCategoryChange()" [(ngModel)]="selectedCategory" class="dropdown">
         <option *ngFor="let category of categories" [ngValue]="category">{{ category.name }}</option>
@@ -15,11 +36,13 @@
 
     <div class="items-list">
         <div *ngFor="let item of getFilteredItems(); let i = index" class="item" (click)="navigateToItem(item.itemId)">
-            <img [src]="item.imageUrl" alt="" />
+            <div class="img">
+                <img [src]="item.imageUrl" alt="" />
+            </div>
             <div class="col">
                 <div class="row">
                     <p>{{item.name}}</p>
-                    <p>{{item.price}}</p>
+                    <p style="white-space: nowrap;">{{item.price}}</p>
                 </div>
                 <p>{{item.description}}</p>
             </div>

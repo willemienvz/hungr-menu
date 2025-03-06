@@ -1,6 +1,6 @@
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA  } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -22,7 +22,6 @@ import { ItemDetailComponent } from './components/item-detail/item-detail.compon
 import { ImgSliderComponent } from './components/img-slider/img-slider.component';
 import { SignInComponent } from './components/sign-in/sign-in.component';
 import { SignupComponent } from './components/sign-up/sign-up.component';
-import { ReactiveFormsModule } from '@angular/forms';
 import { ToastComponent } from './components/toast/toast.component';
 import { NoMenuComponent } from './components/no-menu/no-menu.component';
 import { SelectTableDialogComponent } from './components/select-table-dialog/select-table-dialog.component';
@@ -36,6 +35,8 @@ import { OrderSummaryComponent } from './components/order-summary/order-summary.
 import { PaymentMethodComponent } from './components/payment-method/payment-method.component';
 import { CardPaymentComponent } from './components/card-payment/card-payment.component';
 import { RateMealComponent } from './components/rate-meal/rate-meal.component';
+import { LoadingComponent } from './components/loading/loading.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -60,7 +61,8 @@ import { RateMealComponent } from './components/rate-meal/rate-meal.component';
     OrderSummaryComponent,
     PaymentMethodComponent,
     CardPaymentComponent,
-    RateMealComponent
+    RateMealComponent,
+    LoadingComponent
   ],
   imports: [
     BrowserModule,
@@ -72,7 +74,7 @@ import { RateMealComponent } from './components/rate-meal/rate-meal.component';
     MatIconModule,
     FormsModule,
     ReactiveFormsModule,
-    MatSlideToggleModule
+    MatSlideToggleModule,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA], 
   providers: [],
